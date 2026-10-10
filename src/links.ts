@@ -113,6 +113,12 @@ export const links: TreeNode[] = [
     href: "https://corsi-ai.com/",
   },
   {
+    title: "RediVivo",
+    description: "A memorial board behind a QR code",
+    icon: appIcon("redivivo"),
+    href: "https://redivivo.me/",
+  },
+  {
     title: "ProAF",
     description: "An experiment: a company run by AI alone",
     icon: appIcon("proaf"),
