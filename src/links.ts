@@ -107,10 +107,28 @@ export const links: TreeNode[] = [
     href: "https://apps.apple.com/app/rottenpdf/id6796244459",
   },
   {
+    title: "Corsi-AI",
+    description: "AI training for Italian companies",
+    icon: appIcon("corsi-ai"),
+    href: "https://corsi-ai.com/",
+  },
+  {
+    title: "ProAF",
+    description: "An experiment: a company run by AI alone",
+    icon: appIcon("proaf"),
+    href: "https://proaf.it/",
+  },
+  {
     title: "Rendi",
     description: "Kids' clothes with a buy-back",
     icon: appIcon("rendi"),
     href: "https://rendi.it/",
+  },
+  {
+    title: "Mai Più Soli",
+    description: "Panic button with a 24/7 control room",
+    icon: appIcon("maipiusoli"),
+    href: "https://www.maipiusoli.it/",
   },
   {
     title: "Carrefour Italia",
