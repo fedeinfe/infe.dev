@@ -1,0 +1,41 @@
+---
+import { Image } from "astro:assets";
+import avatar from "../assets/avatar.jpg";
+import { profile } from "../links";
+import SocialIcon from "./SocialIcon.astro";
+---
+
+<header class="glass rounded-[1.75rem] px-6 pt-8 pb-6 text-center" data-refract>
+  <svg class="lens-defs" aria-hidden="true">
+    <filter id="lens" color-interpolation-filters="sRGB">
+      <feImage x="0" y="0" width="100%" height="100%" result="map"></feImage>
+      <feDisplacementMap in="SourceGraphic" in2="map" scale="-90" xChannelSelector="R" yChannelSelector="B"></feDisplacementMap>
+    </filter>
+  </svg>
+  <Image
+    src={avatar}
+    alt=""
+    width={96}
+    height={96}
+    densities={[1, 2, 3]}
+    loading="eager"
+    class="mx-auto size-24 rounded-full object-cover shadow-[0_0_0_3px_rgb(255_255_255/0.55),0_10px_24px_-8px_rgb(0_0_0/0.35)]"
+  />
+  <h1 class="mt-4 text-[1.75rem] leading-tight font-bold tracking-[-0.022em]">{profile.name}</h1>
+  <p class="mx-auto mt-2 max-w-[21rem] text-[1.0625rem] leading-[1.45] text-ink-soft">{profile.bio}</p>
+  <ul class="mt-5 flex justify-center gap-3" role="list">
+    {
+      profile.socials.map((social) => (
+        <li>
+          <a
+            href={social.href}
+            aria-label={social.label}
+            class="grid size-11 place-items-center rounded-full bg-(--press) transition-transform duration-150 ease-out active:scale-[0.94]"
+          >
+            <SocialIcon name={social.icon} />
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</header>

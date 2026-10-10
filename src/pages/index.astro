@@ -1,0 +1,18 @@
+---
+import Profile from "../components/Profile.astro";
+import Tree from "../components/Tree.astro";
+import Base from "../layouts/Base.astro";
+import { links, profile } from "../links";
+---
+
+<Base title={profile.name} description={profile.bio}>
+  <Profile />
+  <nav class="glass overflow-hidden rounded-[1.75rem] [animation-delay:80ms]" aria-label="Projects">
+    <Tree nodes={links} />
+  </nav>
+</Base>
+
+<script>
+  import "../scripts/accordion";
+  import "../scripts/refraction";
+</script>
