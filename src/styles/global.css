@@ -29,6 +29,7 @@
   --hairline: rgb(11 26 16 / 0.1);
   --press: rgb(11 26 16 / 0.07);
   --chip: rgb(52 199 89 / 0.18);
+  --icon-ring: rgb(11 26 16 / 0.14);
   --guide: rgb(26 128 56 / 0.35);
 }
 
@@ -50,6 +51,7 @@
     --hairline: rgb(255 255 255 / 0.1);
     --press: rgb(255 255 255 / 0.09);
     --chip: rgb(48 209 88 / 0.2);
+    --icon-ring: rgb(255 255 255 / 0.18);
     --guide: rgb(48 209 88 / 0.38);
   }
 }
@@ -196,9 +198,9 @@
     overflow: hidden;
   }
 
-  /* 2.125rem puts the first guide line under the centre of the icon chip. */
+  /* 2.25rem puts the first guide line under the centre of the top-level icon. */
   .children > .tree {
-    margin-left: 2.125rem;
+    margin-left: 2.25rem;
     margin-bottom: 0.5rem;
     border-left: 1.5px solid var(--guide);
   }

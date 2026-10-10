@@ -19,11 +19,7 @@ const isRoot = path === "tree";
     nodes.map((node, index) => {
       const label = (
         <>
-          {isRoot && node.icon && (
-            <span class="grid size-9 flex-none place-items-center rounded-[0.625rem] bg-(--chip) text-accent-ink">
-              <Icon name={node.icon} />
-            </span>
-          )}
+          {node.icon && <Icon icon={node.icon} nested={!isRoot} />}
           <span class="min-w-0 flex-1">
             <span class:list={["block text-[1.0625rem] leading-snug tracking-[-0.01em]", isRoot ? "font-semibold" : "font-medium"]}>
               {node.title}

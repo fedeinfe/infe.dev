@@ -4,7 +4,9 @@ Personal site: a short bio and a tree of links to my projects.
 
 ## Editing the links
 
-Everything on the page comes from [`src/links.ts`](src/links.ts). A node is either a link (`href`) or a group (`children`), and groups nest to any depth. `icon` is shown on top-level rows only.
+Everything on the page comes from [`src/links.ts`](src/links.ts). A node is either a link (`href`) or a group (`children`), and groups nest to any depth.
+
+`icon` is either a built-in glyph name or `appIcon("name")`, which loads `src/assets/icons/name.webp`. Icons are square with the artwork filling the canvas; the page rounds the corners.
 
 ## Development
 

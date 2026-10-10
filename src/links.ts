@@ -1,11 +1,14 @@
+import type { ImageMetadata } from "astro";
+import { appIcon } from "./icons";
+
 export type IconName = "apps" | "game" | "map" | "code" | "link";
-export type SocialIcon = "github" | "linkedin" | "mail";
+export type SocialIcon = "github" | "linkedin" | "instagram" | "mail";
 
 interface NodeBase {
   title: string;
   description?: string;
-  /** Shown only on top-level rows. */
-  icon?: IconName;
+  /** A built-in glyph, or an app's own icon through appIcon(). */
+  icon?: IconName | ImageMetadata;
 }
 
 export interface LinkNode extends NodeBase {
@@ -28,19 +31,27 @@ export interface Social {
 
 export const profile = {
   name: "Federico Infelici",
-  bio: "I'm Federico, a software developer based in Italy. I build Quits, small Mac apps you pay for once, and a handful of web projects on the side.",
+  bio: "I'm Federico, a software developer based in Italy. I make Quits, small Mac apps you pay for once, and mobile apps for teams like Rendi and Carrefour.",
   socials: [
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/fedeinfe/", icon: "linkedin" },
+    { label: "Instagram", href: "https://www.instagram.com/fede.dmg/", icon: "instagram" },
     { label: "GitHub", href: "https://github.com/fedeinfe", icon: "github" },
+    { label: "Email", href: "mailto:fede.infe@icloud.com", icon: "mail" },
   ] satisfies Social[],
 };
 
-const quits = (slug: string) => `https://getquits.app/apps/${slug}/`;
+const quitsApp = (slug: string, title: string, description: string): LinkNode => ({
+  title,
+  description,
+  icon: appIcon(slug),
+  href: `https://getquits.app/apps/${slug}/`,
+});
 
 export const links: TreeNode[] = [
   {
     title: "Quits",
     description: "Mac apps you pay for once",
-    icon: "apps",
+    icon: appIcon("quits"),
     children: [
       {
         title: "Quits store",
@@ -48,47 +59,81 @@ export const links: TreeNode[] = [
         href: "https://getquits.app/",
       },
       {
-        title: "Menu bar",
+        title: "System",
         children: [
-          { title: "Tone", description: "Every app gets its own volume", href: quits("tone") },
-          { title: "Stow", description: "Menu bar icons, out of sight until you need them", href: quits("stow") },
-          { title: "Vigil", description: "Keeps your Mac awake", href: quits("vigil") },
-          { title: "Revs", description: "Your Mac's vital signs", href: quits("revs") },
-          { title: "Orario", description: "A calendar with a Join button", href: quits("orario") },
-          { title: "QuickMD", description: "A Markdown note in 2 keystrokes", href: quits("quickmd") },
+          quitsApp("revs", "Revs", "Your Mac's vital signs"),
+          quitsApp("eighty", "Eighty", "Keep your battery away from 100%"),
+          quitsApp("vigil", "Vigil", "Keeps your Mac awake"),
+          quitsApp("unwind", "Unwind", "Clears what coding with AI agents leaves behind"),
+          quitsApp("freshen", "Freshen", "Find the apps that need an update"),
         ],
       },
       {
-        title: "Focus & care",
+        title: "Focus",
         children: [
-          { title: "Dusk", description: "The window in front stays bright", href: quits("dusk") },
-          { title: "Pausa", description: "Every 20 minutes, look into the distance", href: quits("pausa") },
-          { title: "Eighty", description: "Keep your battery away from 100%", href: quits("eighty") },
+          quitsApp("stow", "Stow", "Menu bar icons, out of sight until you need them"),
+          quitsApp("dusk", "Dusk", "The window in front stays bright"),
+          quitsApp("orario", "Orario", "A calendar with a Join button"),
+          quitsApp("pausa", "Pausa", "Every 20 minutes, look into the distance"),
         ],
       },
       {
-        title: "Files & cleanup",
+        title: "Writing",
         children: [
-          { title: "Onda", description: "A video link becomes a file on your Mac", href: quits("onda") },
-          { title: "Squish", description: "Smaller images and videos, as soon as they arrive", href: quits("squish") },
-          { title: "Twofold", description: "Duplicate and look-alike photos, found and cleared", href: quits("twofold") },
-          { title: "Scrap", description: "Everything you've copied, on a shelf", href: quits("scrap") },
-          { title: "Freshen", description: "Find the apps that need an update", href: quits("freshen") },
-          { title: "Unwind", description: "Clears what coding with AI agents leaves behind", href: quits("unwind") },
+          quitsApp("quickmd", "QuickMD", "A Markdown note in 2 keystrokes"),
+          quitsApp("scrap", "Scrap", "Everything you've copied, on a shelf"),
+        ],
+      },
+      {
+        title: "Files & Web",
+        children: [
+          quitsApp("squish", "Squish", "Smaller images and videos, as soon as they arrive"),
+          quitsApp("twofold", "Twofold", "Duplicate and look-alike photos, found and cleared"),
+        ],
+      },
+      {
+        title: "Audio & Video",
+        children: [
+          quitsApp("tone", "Tone", "Every app gets its own volume"),
+          quitsApp("onda", "Onda", "A video link becomes a file on your Mac"),
         ],
       },
     ],
   },
   {
-    title: "NERVE",
-    description: "A one-thumb arcade game",
-    icon: "game",
-    href: "https://fedeinfe.github.io/nerve-game/",
+    title: "RottenPDF",
+    description: "PDFs read aloud, karaoke-style",
+    icon: appIcon("rottenpdf"),
+    href: "https://apps.apple.com/app/rottenpdf/id6796244459",
   },
   {
-    title: "Aste Tribunale Arezzo",
-    description: "Arezzo court auctions on a map",
-    icon: "map",
-    href: "https://fedeinfe.github.io/aste-tribunale-arezzo/",
+    title: "Rendi",
+    description: "Kids' clothes with a buy-back",
+    icon: appIcon("rendi"),
+    href: "https://rendi.it/",
+  },
+  {
+    title: "Carrefour Italia",
+    description: "Led the mobile app team, 2023–26",
+    icon: appIcon("carrefour"),
+    href: "https://apps.apple.com/it/app/carrefour-italia/id1496016087",
+  },
+  {
+    title: "Side projects",
+    icon: "code",
+    children: [
+      {
+        title: "NERVE",
+        description: "A one-thumb arcade game",
+        icon: appIcon("nerve"),
+        href: "https://fedeinfe.github.io/nerve-game/",
+      },
+      {
+        title: "Aste Tribunale Arezzo",
+        description: "Arezzo court auctions on a map",
+        icon: "map",
+        href: "https://fedeinfe.github.io/aste-tribunale-arezzo/",
+      },
+    ],
   },
 ];

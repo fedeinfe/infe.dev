@@ -1,16 +1,18 @@
 ---
+import { Image } from "astro:assets";
 import Code from "@lucide/astro/icons/code";
 import Gamepad2 from "@lucide/astro/icons/gamepad-2";
 import LayoutGrid from "@lucide/astro/icons/layout-grid";
 import Link from "@lucide/astro/icons/link";
 import MapPinned from "@lucide/astro/icons/map-pinned";
-import type { IconName } from "../links";
+import type { IconName, TreeNode } from "../links";
 
 interface Props {
-  name: IconName;
+  icon: NonNullable<TreeNode["icon"]>;
+  nested?: boolean;
 }
 
-const icons = {
+const glyphs = {
   apps: LayoutGrid,
   game: Gamepad2,
   map: MapPinned,
@@ -18,7 +20,32 @@ const icons = {
   link: Link,
 } satisfies Record<IconName, unknown>;
 
-const Glyph = icons[Astro.props.name];
+const { icon, nested = false } = Astro.props;
+const Glyph = typeof icon === "string" ? glyphs[icon] : null;
+const artwork = typeof icon === "string" ? null : icon;
+const size = nested ? 32 : 40;
+const box = ["flex-none rounded-[22.5%]", nested ? "size-8" : "size-10"];
+// Lazy icons inside a closed group would only start loading while it animates open.
+const loading = "eager";
 ---
 
-<Glyph size={18} stroke-width={2} aria-hidden="true" />
+{
+  Glyph && (
+    <span class:list={[box, "grid place-items-center bg-(--chip) text-accent-ink"]}>
+      <Glyph size={size / 2} stroke-width={2} aria-hidden="true" />
+    </span>
+  )
+}
+{
+  artwork && (
+    <Image
+      src={artwork}
+      alt=""
+      width={size}
+      height={size}
+      densities={[1, 2, 3]}
+      loading={loading}
+      class:list={[box, "shadow-[0_0_0_0.5px_var(--icon-ring),0_1px_2px_rgb(0_0_0/0.14)]"]}
+    />
+  )
+}
