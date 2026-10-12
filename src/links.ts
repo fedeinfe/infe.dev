@@ -31,7 +31,7 @@ export interface Social {
 
 export const profile = {
   name: "Federico Infelici",
-  bio: "I'm Federico, a software developer based in Italy. I make Quits, small Mac apps you pay for once, and mobile apps for teams like Rendi and Carrefour.",
+  bio: "I'm Federico Infelici, a software developer since 2014, now a product engineer and consultant specializing in mobile apps and AI-driven development.",
   socials: [
     { label: "LinkedIn", href: "https://www.linkedin.com/in/fedeinfe/", icon: "linkedin" },
     { label: "Instagram", href: "https://www.instagram.com/fede.dmg/", icon: "instagram" },
