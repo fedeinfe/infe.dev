@@ -29,6 +29,7 @@ import SocialIcon from "./SocialIcon.astro";
         <li>
           <a
             href={social.href}
+            {...(social.href.startsWith("mailto:") ? {} : { target: "_blank", rel: "noopener noreferrer" })}
             aria-label={social.label}
             class="grid size-11 place-items-center rounded-full bg-(--press) transition-transform duration-150 ease-out active:scale-[0.94]"
           >
