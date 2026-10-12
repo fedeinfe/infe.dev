@@ -107,22 +107,10 @@ export const links: TreeNode[] = [
     href: "https://apps.apple.com/app/rottenpdf/id6796244459",
   },
   {
-    title: "Corsi-AI",
-    description: "AI training for Italian companies",
-    icon: appIcon("corsi-ai"),
-    href: "https://corsi-ai.com/",
-  },
-  {
     title: "RediVivo",
     description: "A memorial board behind a QR code",
     icon: appIcon("redivivo"),
     href: "https://redivivo.me/",
-  },
-  {
-    title: "ProAF",
-    description: "An experiment: a company run by AI alone",
-    icon: appIcon("proaf"),
-    href: "https://proaf.it/",
   },
   {
     title: "Rendi",
@@ -131,33 +119,9 @@ export const links: TreeNode[] = [
     href: "https://rendi.it/",
   },
   {
-    title: "Mai Più Soli",
-    description: "Panic button with a 24/7 control room",
-    icon: appIcon("maipiusoli"),
-    href: "https://www.maipiusoli.it/",
-  },
-  {
     title: "Carrefour Italia",
     description: "Led the mobile app team, 2023–26",
     icon: appIcon("carrefour"),
     href: "https://apps.apple.com/it/app/carrefour-italia/id1496016087",
-  },
-  {
-    title: "Side projects",
-    icon: "code",
-    children: [
-      {
-        title: "NERVE",
-        description: "A one-thumb arcade game",
-        icon: appIcon("nerve"),
-        href: "https://fedeinfe.github.io/nerve-game/",
-      },
-      {
-        title: "Aste Tribunale Arezzo",
-        description: "Arezzo court auctions on a map",
-        icon: "map",
-        href: "https://fedeinfe.github.io/aste-tribunale-arezzo/",
-      },
-    ],
   },
 ];
