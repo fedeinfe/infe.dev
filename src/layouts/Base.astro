@@ -21,8 +21,8 @@ const ogImage = new URL("/og.png", Astro.site);
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <meta name="theme-color" content="#eef6ee" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#050b07" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f5f5f7" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -31,7 +31,7 @@ const ogImage = new URL("/og.png", Astro.site);
     <meta name="twitter:card" content="summary_large_image" />
   </head>
   <body class="font-sans antialiased">
-    <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div class="aurora" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
     <main
       class="mx-auto flex min-h-dvh w-full max-w-md flex-col gap-4 px-4 pt-[max(2.5rem,env(safe-area-inset-top))] pb-[max(2.5rem,env(safe-area-inset-bottom))]"
     >

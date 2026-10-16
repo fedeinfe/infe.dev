@@ -12,15 +12,9 @@ import SocialIcon from "./SocialIcon.astro";
       <feDisplacementMap in="SourceGraphic" in2="map" scale="-90" xChannelSelector="R" yChannelSelector="B"></feDisplacementMap>
     </filter>
   </svg>
-  <Image
-    src={avatar}
-    alt=""
-    width={96}
-    height={96}
-    densities={[1, 2, 3]}
-    loading="eager"
-    class="mx-auto size-24 rounded-full object-cover shadow-[0_0_0_3px_rgb(255_255_255/0.55),0_10px_24px_-8px_rgb(0_0_0/0.35)]"
-  />
+  <span class="siri-ring mx-auto block size-fit">
+    <Image src={avatar} alt="" width={96} height={96} densities={[1, 2, 3]} loading="eager" class="size-24 rounded-full object-cover" />
+  </span>
   <h1 class="mt-4 text-[1.75rem] leading-tight font-bold tracking-[-0.022em]">{profile.name}</h1>
   <p class="mx-auto mt-2 max-w-[21rem] text-[1.0625rem] leading-[1.45] text-ink-soft">{profile.bio}</p>
   <ul class="mt-5 flex justify-center gap-3" role="list">
