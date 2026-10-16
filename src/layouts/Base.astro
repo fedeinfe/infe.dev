@@ -36,6 +36,9 @@ const ogImage = new URL("/og.png", Astro.site);
       class="mx-auto flex min-h-dvh w-full max-w-md flex-col gap-4 px-4 pt-[max(2.5rem,env(safe-area-inset-top))] pb-[max(2.5rem,env(safe-area-inset-bottom))]"
     >
       <slot />
+      <footer class="mt-auto pt-6 text-center text-xs leading-snug text-ink-soft">
+        © {new Date().getFullYear()} Federico Infelici · P.IVA 02427350513
+      </footer>
     </main>
   </body>
 </html>
