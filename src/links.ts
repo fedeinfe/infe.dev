@@ -104,7 +104,16 @@ export const links: TreeNode[] = [
     title: "RottenPDF",
     description: "PDFs read aloud, karaoke-style",
     icon: appIcon("rottenpdf"),
-    href: "https://apps.apple.com/app/rottenpdf/id6796244459",
+    children: [
+      { title: "App Store", href: "https://apps.apple.com/app/rottenpdf/id6796244459" },
+      { title: "Google Play", href: "https://play.google.com/store/apps/details?id=com.fedeinfe.rottenpdf" },
+    ],
+  },
+  {
+    title: "eTuner",
+    description: "A tuner that shows how to move each saddle",
+    icon: appIcon("etuner"),
+    href: "https://play.google.com/store/apps/details?id=com.fedeinfe.etuner",
   },
   {
     title: "Scratchy",
