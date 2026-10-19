@@ -107,6 +107,15 @@ export const links: TreeNode[] = [
     href: "https://apps.apple.com/app/rottenpdf/id6796244459",
   },
   {
+    title: "Scratchy",
+    description: "Show your partner exactly where to scratch",
+    icon: appIcon("scratchy"),
+    children: [
+      { title: "App Store", href: "https://apps.apple.com/it/app/scratchy-the-perfect-spot/id6477536545" },
+      { title: "Google Play", href: "https://play.google.com/store/apps/details?id=com.fedeinfe.scratchy" },
+    ],
+  },
+  {
     title: "RediVivo",
     description: "A memorial board behind a QR code",
     icon: appIcon("redivivo"),
