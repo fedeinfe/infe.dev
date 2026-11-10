@@ -1,10 +1,10 @@
 import type { ImageMetadata } from "astro";
 import { appIcon } from "./icons";
 
-export type IconName = "apps" | "game" | "map" | "code" | "link";
+export type IconName = "apps" | "game" | "map" | "code" | "link" | "work";
 export type SocialIcon = "github" | "linkedin" | "instagram" | "mail";
 
-interface NodeBase {
+export interface NodeBase {
   title: string;
   description?: string;
   /** A built-in glyph, or an app's own icon through appIcon(). */
@@ -125,10 +125,14 @@ export const links: TreeNode[] = [
     ],
   },
   {
-    title: "RediVivo",
-    description: "A memorial board behind a QR code",
-    icon: appIcon("redivivo"),
-    href: "https://redivivo.me/",
+    title: "Rapp",
+    description: "The freestyle rap app, #18 on the App Store",
+    icon: appIcon("rapp"),
+    children: [
+      { title: "Instagram", href: "https://www.instagram.com/rappmobile/" },
+      { title: "TikTok", href: "https://www.tiktok.com/@rappmobile" },
+      { title: "The launch on Freestyle Rap Italiano", href: "https://freestylerapitaliano.it/rapp-app-freestyle.htm" },
+    ],
   },
   {
     title: "Rendi",
@@ -141,5 +145,60 @@ export const links: TreeNode[] = [
     description: "Led the mobile app team, 2023–26",
     icon: appIcon("carrefour"),
     href: "https://apps.apple.com/it/app/carrefour-italia/id1496016087",
+  },
+];
+
+export interface Experience {
+  role: string;
+  company: string;
+  /** Years as shown, e.g. "2023–26" or "2026–now". */
+  period: string;
+  summary: string;
+  icon: IconName | ImageMetadata;
+}
+
+/** From LinkedIn, newest first. */
+export const experience: Experience[] = [
+  {
+    role: "Product Engineer",
+    company: "Rendi",
+    period: "2026–now",
+    summary: "Turning ideas into shipped products, from the first sketch to every iteration after launch.",
+    icon: appIcon("rendi"),
+  },
+  {
+    role: "Lead Mobile Developer",
+    company: "Carrefour Italia",
+    period: "2023–26",
+    summary: "Tech lead of the omnichannel app (loyalty, shopping and in-store services): the team, code reviews, releases and third-party partners.",
+    icon: appIcon("carrefour"),
+  },
+  {
+    role: "Senior Software Engineer",
+    company: "Freelance",
+    period: "2022–now",
+    summary: "Web and mobile products end to end: React Native apps, Node.js APIs, an LLM Telegram bot and sites for small businesses.",
+    icon: "work",
+  },
+  {
+    role: "Full Stack Developer & UI/UX Designer",
+    company: "Hetalab",
+    period: "2022–23",
+    summary: "Backends and APIs for custom B2B software, including a 3D store-layout platform used by Guess.",
+    icon: "work",
+  },
+  {
+    role: "Co-founder & Mobile Developer",
+    company: "Rapp",
+    period: "2020–25",
+    summary: "Built a consumer app from idea to market: #18 on the App Store, 30,000+ downloads and 2,500 monthly users at its peak.",
+    icon: appIcon("rapp"),
+  },
+  {
+    role: "Mobile App Developer",
+    company: "Livemote",
+    period: "2019–21",
+    summary: "The whole mobile front end of a remote field-assistance platform, with chat and augmented-reality video calls.",
+    icon: "work",
   },
 ];

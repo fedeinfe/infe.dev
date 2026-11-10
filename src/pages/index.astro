@@ -1,4 +1,5 @@
 ---
+import Experience from "../components/Experience.astro";
 import Profile from "../components/Profile.astro";
 import Tree from "../components/Tree.astro";
 import Base from "../layouts/Base.astro";
@@ -7,10 +8,14 @@ import { links, profile } from "../links";
 
 <Base title={profile.name} description={profile.bio}>
   <Profile />
-  <nav class="glass overflow-hidden rounded-[1.75rem] [animation-delay:80ms]" aria-label="Projects">
-    <Tree nodes={links} />
+  <nav class="flex flex-col gap-2" aria-labelledby="projects-title">
+    <h2 id="projects-title" class="section-title">Projects</h2>
+    <div class="glass overflow-hidden rounded-[1.75rem] [animation-delay:80ms]">
+      <Tree nodes={links} />
+    </div>
+    <p class="text-center text-[0.8125rem] leading-snug text-ink-soft">When I feel like it, I'll add all the others too…</p>
   </nav>
-  <p class="text-center text-[0.8125rem] leading-snug text-ink-soft">When I feel like it, I'll add all the others too…</p>
+  <Experience />
 </Base>
 
 <script>

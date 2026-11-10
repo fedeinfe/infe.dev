@@ -11,54 +11,56 @@
 :root {
   color-scheme: light dark;
   --ease-ios: cubic-bezier(0.32, 0.72, 0, 1);
-  /* Apple Intelligence, the same spectrum as the reels: the one strong colour, used once per view. */
-  --spectrum: #0894ff, #c959dd, #ff2e54, #ff9004;
+  /* Saffron, the channel's one strong colour: the studio lamps. The shade stays inside the same hue. */
+  --saffron: #ffc53d;
+  --saffron-deep: #ffb02e;
+  --ring: conic-gradient(var(--saffron), var(--saffron-deep), rgb(255 197 61 / 0.2), var(--saffron));
 
-  --accent: #007aff;
-  /* #007aff is only 4:1 on the light glass, too faint for glyphs. */
-  --accent-ink: #0066cc;
-  --ink: #1d1d1f;
-  --ink-soft: rgb(29 29 31 / 0.66);
+  --accent: var(--saffron);
+  /* Saffron is far too faint on cream for glyphs and text. */
+  --accent-ink: #8a5300;
+  --ink: #1e1302;
+  --ink-soft: rgb(30 19 2 / 0.66);
 
-  --page: #f5f5f7;
-  --blob-1: rgb(8 148 255 / 0.5);
-  --blob-2: rgb(201 89 221 / 0.48);
-  --blob-3: rgb(255 46 84 / 0.4);
-  --blob-4: rgb(255 144 4 / 0.42);
+  --page: #fbf6ec;
+  --blob-1: rgb(255 197 61 / 0.55);
+  --blob-2: rgb(255 176 46 / 0.4);
+  --blob-3: rgb(255 226 150 / 0.6);
+  --blob-4: rgb(255 150 30 / 0.3);
 
-  --glass: rgb(255 255 255 / 0.5);
+  --glass: rgb(255 253 248 / 0.55);
   --glass-rim: linear-gradient(155deg, rgb(255 255 255 / 0.95), rgb(255 255 255 / 0.25) 38%, rgb(255 255 255 / 0.1) 62%, rgb(255 255 255 / 0.6));
-  --glass-shadow: 0 1px 2px rgb(0 0 0 / 0.05), 0 16px 40px -12px rgb(40 20 80 / 0.22);
-  --hairline: rgb(0 0 0 / 0.1);
-  --press: rgb(0 0 0 / 0.06);
-  --chip: rgb(0 122 255 / 0.14);
+  --glass-shadow: 0 1px 2px rgb(0 0 0 / 0.05), 0 16px 40px -12px rgb(90 55 0 / 0.22);
+  --hairline: rgb(30 19 2 / 0.1);
+  --press: rgb(30 19 2 / 0.06);
+  --chip: rgb(255 197 61 / 0.3);
   --icon-ring: rgb(0 0 0 / 0.14);
-  --guide: rgb(0 102 204 / 0.32);
-  --selection: rgb(0 122 255 / 0.3);
+  --guide: rgb(138 83 0 / 0.3);
+  --selection: rgb(255 197 61 / 0.45);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --accent: #0a84ff;
-    --accent-ink: #409cff;
+    --accent-ink: var(--saffron);
     --ink: #f5f5f7;
     --ink-soft: rgb(245 245 247 / 0.66);
 
-    --page: #000;
-    --blob-1: rgb(8 148 255 / 0.5);
-    --blob-2: rgb(201 89 221 / 0.45);
-    --blob-3: rgb(255 46 84 / 0.32);
-    --blob-4: rgb(255 144 4 / 0.3);
+    /* The warm dark wall of the reels. */
+    --page: #14110f;
+    --blob-1: rgb(255 197 61 / 0.3);
+    --blob-2: rgb(255 176 46 / 0.2);
+    --blob-3: rgb(180 100 20 / 0.28);
+    --blob-4: rgb(255 197 61 / 0.14);
 
-    --glass: rgb(28 28 30 / 0.5);
-    --glass-rim: linear-gradient(155deg, rgb(255 255 255 / 0.36), rgb(255 255 255 / 0.08) 38%, rgb(255 255 255 / 0.03) 62%, rgb(255 255 255 / 0.18));
-    --glass-shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 40px 90px -20px rgb(0 0 0 / 0.55);
+    --glass: rgb(34 29 25 / 0.55);
+    --glass-rim: linear-gradient(155deg, rgb(255 255 255 / 0.3), rgb(255 255 255 / 0.07) 38%, rgb(255 255 255 / 0.03) 62%, rgb(255 255 255 / 0.15));
+    --glass-shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 40px 90px -20px rgb(0 0 0 / 0.6);
     --hairline: rgb(255 255 255 / 0.1);
-    --press: rgb(255 255 255 / 0.09);
-    --chip: rgb(10 132 255 / 0.2);
+    --press: rgb(255 255 255 / 0.08);
+    --chip: rgb(255 197 61 / 0.16);
     --icon-ring: rgb(255 255 255 / 0.18);
-    --guide: rgb(64 156 255 / 0.4);
-    --selection: rgb(10 132 255 / 0.42);
+    --guide: rgb(255 197 61 / 0.35);
+    --selection: rgb(255 197 61 / 0.35);
   }
 }
 
@@ -142,26 +144,26 @@
     --dy: -14vmax;
   }
 
-  /* The Siri edge from the reels: a spectrum ring that turns slowly, with a soft glow of itself behind. */
-  .siri-ring {
+  /* A saffron ring that turns slowly, with a soft glow of itself behind. */
+  .ring {
     position: relative;
     isolation: isolate;
     border-radius: 50%;
     padding: 3px;
   }
 
-  .siri-ring::before,
-  .siri-ring::after {
+  .ring::before,
+  .ring::after {
     content: "";
     position: absolute;
     inset: 0;
     z-index: -1;
     border-radius: inherit;
-    background: conic-gradient(var(--spectrum), #0894ff);
+    background: var(--ring);
     animation: spin 9s linear infinite;
   }
 
-  .siri-ring::after {
+  .ring::after {
     filter: blur(14px);
     opacity: 0.55;
   }
@@ -213,6 +215,22 @@
     outline-offset: -3px;
     border-radius: inherit;
     transition: background-color 400ms ease-out;
+  }
+
+  .entry {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.875rem 1rem;
+  }
+
+  .section-title {
+    padding-inline: 1rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
   }
 
   .row::-webkit-details-marker {
@@ -272,8 +290,8 @@
 @media (prefers-reduced-motion: reduce) {
   .aurora i,
   .glass,
-  .siri-ring::before,
-  .siri-ring::after {
+  .ring::before,
+  .ring::after {
     animation: none;
   }
 
