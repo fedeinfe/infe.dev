@@ -1,4 +1,5 @@
 ---
+import ArrowUpRight from "@lucide/astro/icons/arrow-up-right";
 import { experience } from "../links";
 import Icon from "./Icon.astro";
 ---
@@ -7,18 +8,33 @@ import Icon from "./Icon.astro";
   <h2 id="experience-title" class="section-title">Experience</h2>
   <ol class="glass tree overflow-hidden rounded-[1.75rem] [animation-delay:160ms]" role="list">
     {
-      experience.map((job) => (
-        <li class="entry">
-          <Icon icon={job.icon} />
-          <div class="min-w-0 flex-1">
-            <p class="text-[1.0625rem] leading-snug font-semibold tracking-[-0.01em]">{job.role}</p>
-            <p class="text-[0.8125rem] leading-snug font-medium text-accent-ink">
-              {job.company} · {job.period}
-            </p>
-            <p class="mt-1 text-[0.875rem] leading-[1.4] text-ink-soft">{job.summary}</p>
-          </div>
-        </li>
-      ))
+      experience.map((job) => {
+        const body = (
+          <>
+            <Icon icon={job.icon} />
+            <div class="min-w-0 flex-1">
+              <p class="text-[1.0625rem] leading-snug font-semibold tracking-[-0.01em]">{job.role}</p>
+              <p class="text-[0.8125rem] leading-snug font-medium text-accent-ink">
+                {job.company} · {job.period}
+              </p>
+              <p class="mt-1 text-[0.875rem] leading-[1.4] text-ink-soft">{job.summary}</p>
+            </div>
+          </>
+        );
+
+        return (
+          <li>
+            {job.href ? (
+              <a class="row entry" href={job.href} target="_blank" rel="noopener noreferrer">
+                {body}
+                <ArrowUpRight class="flex-none self-center text-accent-ink" size={18} stroke-width={2.25} aria-hidden="true" />
+              </a>
+            ) : (
+              <div class="entry">{body}</div>
+            )}
+          </li>
+        );
+      })
     }
   </ol>
 </section>

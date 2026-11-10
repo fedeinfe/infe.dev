@@ -155,6 +155,7 @@ export interface Experience {
   period: string;
   summary: string;
   icon: IconName | ImageMetadata;
+  href?: string;
 }
 
 /** From LinkedIn, newest first. */
@@ -199,6 +200,7 @@ export const experience: Experience[] = [
     company: "Livemote",
     period: "2019–21",
     summary: "The whole mobile front end of a remote field-assistance platform, with chat and augmented-reality video calls.",
-    icon: "work",
+    icon: appIcon("livemote"),
+    href: "https://www.livemote.com/enterprise/it/",
   },
 ];

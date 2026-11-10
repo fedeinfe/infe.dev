@@ -220,6 +220,7 @@
   .entry {
     display: flex;
     align-items: flex-start;
+    min-height: 0;
     gap: 0.75rem;
     padding: 0.875rem 1rem;
   }
