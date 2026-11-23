@@ -1,4 +1,4 @@
-# infe.dev
+# fedeinfe.ai
 
 Personal site: a short bio and a tree of links to my projects.
 
@@ -18,6 +18,6 @@ pnpm build    # type-check, then static output in dist/
 
 ## Deploy
 
-Pushing to `main` deploys to [infe.dev](https://infe.dev): a GitHub webhook tells Coolify to rebuild the `Dockerfile`, which builds the static site and serves it with nginx.
+Pushing to `main` deploys to [fedeinfe.ai](https://fedeinfe.ai): a GitHub webhook tells Coolify to rebuild the `Dockerfile`, which builds the static site and serves it with nginx.
 
-The app is `infe.dev` in the `infe.dev` project on coolify.proaf.it, where `www.infe.dev` redirects to the apex. The webhook secret is the one in the app's Webhooks tab; the same value is set on the repository's webhook.
+The app is `fedeinfe.ai` in the `infe.dev` project on coolify.proaf.it, where `www.fedeinfe.ai` redirects to the apex. The old domain infe.dev (and every subdomain) answers with a 301 to the same path on fedeinfe.ai, from `infe-dev-redirect.yaml` in the server proxy dynamic configuration. The webhook secret is the one in the app's Webhooks tab; the same value is set on the repository's webhook.
