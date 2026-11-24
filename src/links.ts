@@ -36,7 +36,7 @@ export const profile = {
     { label: "LinkedIn", href: "https://www.linkedin.com/in/fedeinfe/", icon: "linkedin" },
     { label: "Instagram", href: "https://www.instagram.com/fede.dmg/", icon: "instagram" },
     { label: "GitHub", href: "https://github.com/fedeinfe", icon: "github" },
-    { label: "Email", href: "mailto:fede.infe@icloud.com", icon: "mail" },
+    { label: "Email", href: "mailto:info@fedeinfe.ai", icon: "mail" },
   ] satisfies Social[],
 };
 
