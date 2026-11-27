@@ -101,6 +101,15 @@ export const links: TreeNode[] = [
     ],
   },
   {
+    title: "Revenue Glance",
+    description: "Your AdMob earnings in Home screen widgets",
+    icon: appIcon("revenue-glance"),
+    children: [
+      { title: "App Store", href: "https://apps.apple.com/app/revenue-glance/id6838062608" },
+      { title: "Google Play", href: "https://play.google.com/store/apps/details?id=com.fedeinfe.admob" },
+    ],
+  },
+  {
     title: "RottenPDF",
     description: "PDFs read aloud, karaoke-style",
     icon: appIcon("rottenpdf"),
